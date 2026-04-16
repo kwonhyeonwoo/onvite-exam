@@ -1,9 +1,6 @@
-import './App.css'
-
 function App() {
-  return (
-    <div>hello world</div>
-  )
+  console.log("first");
+  return <div className="text-bold bg-black underline">hello</div>;
 }
 
-export default App
+export default App;
