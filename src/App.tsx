@@ -1,7 +1,13 @@
 import ShadcnPoint from "./shadcn/ShadcnPoint";
+import { Toaster } from "sonner";
 
 function App() {
-  return <ShadcnPoint />;
+  return (
+    <>
+      <ShadcnPoint />
+      <Toaster />
+    </>
+  );
 }
 
 export default App;
