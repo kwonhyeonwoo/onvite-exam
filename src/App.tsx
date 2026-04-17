@@ -1,5 +1,7 @@
+import ShadcnPoint from "./shadcn/ShadcnPoint";
+
 function App() {
-  return <div></div>;
+  return <ShadcnPoint />;
 }
 
 export default App;
