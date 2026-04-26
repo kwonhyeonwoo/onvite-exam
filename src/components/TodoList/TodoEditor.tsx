@@ -1,15 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useAddTodo } from "@/store/useTodoStore";
-import React, { useState } from "react";
+import { useCreateTodo } from "@/hooks/mutations/useCreateTodo";
+import { useState } from "react";
 
 const TodoEditor = () => {
   const [content, setContent] = useState<string>("");
-  const addTodo = useAddTodo();
+  const { mutate, isPending } = useCreateTodo();
   const handleAddTodo = () => {
     if (content.trim() === "") return;
-    addTodo(content);
     setContent("");
+    mutate(content);
   };
   return (
     <div className="flex gap-2">
@@ -19,7 +19,9 @@ const TodoEditor = () => {
         onChange={(e) => setContent(e.target.value)}
         placeholder="오늘 할일을 적으세요..."
       />
-      <Button onClick={handleAddTodo}>추가</Button>
+      <Button disabled={isPending} onClick={handleAddTodo}>
+        추가
+      </Button>
     </div>
   );
 };
